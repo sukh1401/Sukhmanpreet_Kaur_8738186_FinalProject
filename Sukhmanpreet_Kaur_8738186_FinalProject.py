@@ -1,19 +1,27 @@
 class TicTacToe:
+    board = []
 
     def __init__(self):
-        pass
+         self.board = [
+            "-", "-", "-",
+            "-", "-", "-",
+            "-", "-", "-"
+        ]
 
     # Display Board
     def displayBoard(self):
         """Displays the available spots for the game and the already filled spots with symbols of the players if already played.
         """
-        pass
+        print("|", self.board[0], "|", self.board[1], "|", self.board[2], "|")
+        print("|", self.board[3], "|", self.board[4], "|", self.board[5], "|")
+        print("|", self.board[6], "|", self.board[7], "|", self.board[8], "|")
 
     # PlayGame
     def playGame(self):
         """Main method to run the game until the game is over.
         """
-        pass
+        # display board
+        self.displayBoard()
 
     # HandleTurn
     def handleTurn(self):
@@ -73,3 +81,6 @@ class TicTacToe:
         pass
 
 
+if __name__ == '__main__':
+    app = TicTacToe()
+    app.playGame()
