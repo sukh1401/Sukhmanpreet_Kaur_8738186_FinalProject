@@ -1,23 +1,46 @@
+class TicTacToe:
 
+    def __init__(self):
+        pass
 
-# Display Board
+    # Display Board
+    def displayBoard(self):
+        pass
 
-# PlayGame
+    # PlayGame
+    def playGame(self):
+        pass
 
-# HandleTurn
+    # HandleTurn
+    def handleTurn(self):
+        pass
 
-# CheckIfGameOver
+    # CheckIfGameOver
+    def checkIfGameOver(self):
+        pass
 
-# CheckForWinner
+    # CheckForWinner
+    def checkForWinner(self):
+        pass
 
-# CheckRowsWinner
+    # CheckRowsWinner
+    def checkRows(self):
+        pass
 
-# CheckColumnsWinner
+    # CheckColumnsWinner
+    def checkColumns(self):
+        pass
 
-# CheckDiagonalsWinner
+    # CheckDiagonalsWinner
+    def checkDiagonals(self):
+        pass
 
-# CheckForTie
+    # CheckForTie
+    def checkForTie(self):
+        pass
 
-# FlipPlayer
+    # FlipPlayer
+    def flipPlayer(self):
+        pass
 
 
