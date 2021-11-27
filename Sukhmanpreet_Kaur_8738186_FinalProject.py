@@ -1,5 +1,7 @@
 class TicTacToe:
     board = []
+    gameStillGoing = True
+    winner=None
 
     def __init__(self):
          self.board = [
@@ -22,6 +24,20 @@ class TicTacToe:
         """
         # display board
         self.displayBoard()
+        # We will keep the game on play as long as the the state of the gameStillGoing variable is True
+        while self.gameStillGoing:
+            # handleTurns for the player i.e the spot the player wants to fill
+            self.handleTurn()
+            # check if the game is over
+            self.checkIfGameOver()
+            # flip Players turns
+            self.flipPlayer()
+        # handle logic when the game is over if there is a winner print who the winner is otherwise print a Tie
+        if self.winner == "X" or self.winner == "O":
+            print(f"{self.winner} won.")
+        else:
+            print("Tie.")
+
 
     # HandleTurn
     def handleTurn(self):
