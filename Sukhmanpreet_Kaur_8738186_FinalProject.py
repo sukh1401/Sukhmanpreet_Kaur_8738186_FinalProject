@@ -2,6 +2,7 @@ class TicTacToe:
     board = []
     gameStillGoing = True
     winner=None
+    currentPlayer = "X"
 
     def __init__(self):
          self.board = [
@@ -43,7 +44,24 @@ class TicTacToe:
     def handleTurn(self):
         """Prompts the player to choose a move for the game and determines the spot for the current player against the available spots for the game and fills the chosen spot otherwise alerts the user of the spot being already taken
         """
-        pass
+        # Print who the player's turn is
+        print(f"{self.currentPlayer}'s turn")
+        # Prompt the player for the position for the spot
+        position = input("Choose a position from 1-9:")
+        valid = False
+        # As long as the player chooses an already filled position or a position value not in the given range, alert the player and prompt again
+        while not valid:
+            while position not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+                position = input("Innvalid Input! Choose a position from 1-9:")
+            position = int(position)-1
+            # if the position is in the range, then check if the spot is not filled set valid True to exit the loop for prompting for the position
+            if self.board[position] == "-":
+                valid = True
+            else:
+                print("Spot already filled. Go again")
+        # the position is okay, fill the board with the player's symbol at that position and display the updated board.
+        self.board[position] = f"{self.currentPlayer}"
+        self.displayBoard()
 
     # CheckIfGameOver
     def checkIfGameOver(self):
