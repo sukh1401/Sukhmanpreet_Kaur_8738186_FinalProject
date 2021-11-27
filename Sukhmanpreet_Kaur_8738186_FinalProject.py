@@ -112,7 +112,10 @@ class TicTacToe:
     def flipPlayer(self):
         """Assign a turn to the player depending on the player who has just played the game
         """
-        pass
+        if self.currentPlayer == 'X':
+            self.currentPlayer = 'O'
+        else:
+            self.currentPlayer = 'X'
 
 
 if __name__ == '__main__':
