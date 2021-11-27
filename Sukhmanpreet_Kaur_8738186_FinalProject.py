@@ -106,7 +106,9 @@ class TicTacToe:
     def checkForTie(self):
         """Updates the game state to over when all the available spots for the game are filled, and  there is no winner
         """
-        pass
+        if "-" not in self.board:
+            self.gameStillGoing = False
+        return
 
     # FlipPlayer
     def flipPlayer(self):
