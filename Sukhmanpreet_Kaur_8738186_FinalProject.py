@@ -82,7 +82,19 @@ class TicTacToe:
         Returns:
             str: returns symbol of the winner of the game in a row
         """
-        pass
+        row1 = self.board[0] == self.board[1] == self.board[2] != "-"
+        row2 = self.board[3] == self.board[4] == self.board[5] != "-"
+        row3 = self.board[6] == self.board[7] == self.board[8] != "-"
+        if row1 or row2 or row3:
+            self.gameStillGoing = False
+        if row1:
+            return self.board[0]
+        elif row2:
+            return self.board[3]
+        elif row3:
+            return self.board[6]
+        else:
+            return
 
     # CheckColumnsWinner
     def checkColumns(self):
@@ -91,7 +103,19 @@ class TicTacToe:
         Returns:
             str: the symbol of the winner of the game in a column
         """
-        pass
+        column1 = self.board[0] == self.board[3] == self.board[6] != "-"
+        column2 = self.board[1] == self.board[4] == self.board[7] != "-"
+        column3 = self.board[2] == self.board[5] == self.board[8] != "-"
+        if column1 or column2 or column3:
+            self.gameStillGoing = False
+        if column1:
+            return self.board[0]
+        elif column2:
+            return self.board[3]
+        elif column3:
+            return self.board[6]
+        else:
+            return
 
     # CheckDiagonalsWinner
     def checkDiagonals(self):
@@ -100,7 +124,16 @@ class TicTacToe:
         Returns:
             str: the symbol of the winner of the game in a diagonal or None
         """
-        pass
+        diagonal1 = self.board[0] == self.board[4] == self.board[8] != "-"
+        diagonal2 = self.board[6] == self.board[4] == self.board[2] != "-"
+        if diagonal1 or diagonal2:
+            self.gameStillGoing = False
+        if diagonal1:
+            return self.board[0]
+        elif diagonal2:
+            return self.board[2]
+        else:
+            return
 
     # CheckForTie
     def checkForTie(self):
