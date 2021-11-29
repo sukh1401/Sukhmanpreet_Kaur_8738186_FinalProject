@@ -1,4 +1,44 @@
 class TicTacToe:
+    """
+    A class used to represent a TicTacToe game
+
+    ...
+
+    Attributes
+    ----------
+    gameStillGoing : bool, default True
+        a boolean variable indicating whether the game is still on
+    currentPlayer : str, default X
+        the symbol of the current player that is playing the game
+    winner : str, default None
+        the symbol of the winner of the game
+    board : list, default spots with "-"
+        the board showing the available spots for the game
+
+    Methods
+    -------
+    display_board()
+        Displays the available spots for the game and the already filled spots with symbols of the players if already played.
+    playGame()
+        Main method to run the game until the game is over
+    handleTurn()
+        Prompts the player to choose a move for the game and determines the spot for the current player against the available spots for the game and fills the chosen spot
+    checkIfGameOver()
+        The game is over when all the available spots for the game are filled, or when there is a continuous symbol of the same player across a column, row or diagonal otherwise its a tie.
+    checkForWinner()
+        Assigns the sysmbol of the winner of the game in a row or column or diagonal
+    checkRows()
+        Return the symbol of the winner of the game in a row
+    checkColumns()
+        Return the symbol of the winner of the game in a column
+    checkDiagonals()
+        Return the symbol of the winner of the game in a diagonal
+    checkForTie()
+        Updates the game state to over when all the available spots for the game are filled, and  there is no winner
+    flipPlayer()
+        Assign a turn to the player depending on the player who has just played the game
+
+    """
     board = []
     gameStillGoing = True
     winner=None
@@ -67,13 +107,27 @@ class TicTacToe:
     def checkIfGameOver(self):
         """The game is over when all the available spots for the game are filled i.e a (tie), or when there is a continuous symbol of the same player across a column, row or diagonal i.e (win).
         """
-        pass
+        self.checkForWinner()
+        self.checkForTie()
 
     # CheckForWinner
     def checkForWinner(self):
         """Assigns the winner of the game in a row or column or diagonal
         """
-        pass
+        # check rows
+        rowWinner = self.checkRows()
+        # check columns
+        columnWinner = self.checkColumns()
+        # check diagonals
+        diagonalsWinner = self.checkDiagonals()
+        if rowWinner:
+            self.winner = rowWinner
+        elif columnWinner:
+            self.winner = columnWinner
+        elif diagonalsWinner:
+            self.winner = diagonalsWinner
+        else:
+            self.winner = None
 
     # CheckRowsWinner
     def checkRows(self):
